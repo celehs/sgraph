@@ -1,0 +1,30 @@
+---
+title: "Sgraph"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    theme: spacelab 
+runtime: shiny
+---
+
+```{r}
+#devtools::load_all()
+library(sgraph)
+
+dirpath = system.file('extdata', package = 'sgraph')
+kgraph = get(load(file.path(dirpath, 'epmc_1700_cuis_kg.rds')))
+igraph = kgraph_to_lgraph(kgraph) %>% l_graph_to_igraph
+sgraph = sgraph_clusters(igraph, node_size = 7)
+
+output$kg = renderSgraph(sgraph)
+```
+
+# Graph
+
+##
+
+###
+
+```{r}
+  sgraphOutput('kg', height = '100%')
+```

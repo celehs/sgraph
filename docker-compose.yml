@@ -1,0 +1,48 @@
+version: '2'
+
+services:
+  manual:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph
+    command: make doc.pdf
+  vignette:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph
+    command: make vignette
+  build_doc:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph/
+    command: make roxygenise
+  pkg_test:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph/
+    command: make devtools_test
+  pkg_check:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph/
+    command: make devtools_check
+  pkg_submit:
+    build: ./
+    volumes:
+      - ./:/sgraph/
+    working_dir: /sgraph/
+    command: make submit
+  shiny:
+    build: ./
+    user: shiny
+    command: /usr/bin/shiny-server /srv/shiny-server/shiny-server.conf 
+    ports:
+      - "3838:3838"
+    volumes:
+      - ./:/srv/
+
