@@ -11,5 +11,9 @@ run apt-get update && apt-get install -y tidy
 
 run R -e "install.packages('shinyBS')"
 
+run R -e "install.packages('covr')"
+
+run apt-get update && apt-get install -y git
+
 add ./ /sgraph
 run R -e "devtools::install('sgraph', dependencies = TRUE)"

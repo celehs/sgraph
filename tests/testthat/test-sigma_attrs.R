@@ -49,3 +49,11 @@ test_add_edge_color = function() {
 }
 test_that('add_edge_color', test_add_edge_color())
 
+
+test_add_node_hidden = function() {
+   sig <- sigma_from_igraph(igraph = lesMis) %>%
+     add_node_hidden("hide_attr")
+  expect_true(TRUE)
+}
+test_that('add_node_hidden', test_add_node_hidden())
+

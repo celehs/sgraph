@@ -1,6 +1,7 @@
 # sgraph
 
 [![CRAN version](http://www.r-pkg.org/badges/version/sgraph)](https://cran.r-project.org/package=sgraph)
+[![codecov](https://codecov.io/gl/thomaschln/sgraph/graph/badge.svg?token=UNZXB3R6P1)](https://codecov.io/gl/thomaschln/sgraph)
 [![CRAN total downloads](http://cranlogs.r-pkg.org/badges/grand-total/sgraph)](https://cran.r-project.org/package=sgraph)
 [![CRAN monthly downloads](http://cranlogs.r-pkg.org/badges/sgraph)](https://cran.r-project.org/package=sgraph)
 
