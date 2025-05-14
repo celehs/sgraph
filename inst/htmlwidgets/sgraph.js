@@ -33,16 +33,13 @@ customDrawLabel = function(
   if (!singleLine && data.key) {
     lines.push("ID: " + data.key);
   }
-  var shortlines = lines.map(function(line) {
-    return line.length >= 4 ? line.substring(0, 4) : line;
-  });
   var lineHeight = size;
   var y = data.y + size / 3;
   if (singleLine) {
     if (drawFrame) {
         customDrawHover(context, data, settings, true);
     }
-    context.fillText(shortlines[0], data.x + data.size + 3, y);
+    context.fillText(lines[0], data.x + data.size + 3, y);
   } else {
     for (var i = 0; i < lines.length; i++) {
       context.fillText(lines[i], data.x + data.size + 3, y);
@@ -82,12 +79,11 @@ customDrawHover = function (
       }
       var displayLines = lines;
       
-      // If in single line mode (not hover state), use abbreviated text to calculate width
+      // Calculate text width using full text instead of abbreviation
       if (singleLine) {
         displayLines = lines.slice(0, 1);
-        // Get first four characters for abbreviation and width calculation
-        var shortLine = displayLines[0].length >= 4 ? displayLines[0].substring(0, 4) : displayLines[0];
-        var textWidth = context.measureText(shortLine).width;
+        // Use the complete first line text to calculate width, no longer using abbreviation
+        var textWidth = context.measureText(displayLines[0]).width;
       } else {
         // In hover state, use full text
         var textWidth = context.measureText(lines[0]).width;
@@ -136,7 +132,6 @@ customDrawHover = function (
     // And finally we draw the label
     customDrawLabel(context, data, settings, singleLine, false);
   }
-
 
 HTMLWidgets.widget({
 
