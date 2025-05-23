@@ -153,6 +153,7 @@ HTMLWidgets.widget({
 
         //s.setSetting('labelColor', x.options.labelColor);
         s.setSetting('labelGridCellSize', x.options.label_grid_cell_size);
+        s.setSetting('labelSize', x.options.label_size);
         s.setSetting('minEdgeSize', x.options.min_edge_size);
         s.setSetting('maxEdgeSize', x.options.max_edge_size);
         s.setSetting('minNodeSize', x.options.min_node_size);

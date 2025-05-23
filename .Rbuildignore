@@ -6,3 +6,6 @@ LICENSE
 Makefile
 README.md
 shiny-server
+^.*\.Rproj$
+^\.Rproj\.user$
+.Rhistory

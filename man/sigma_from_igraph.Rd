@@ -11,7 +11,9 @@ sigma_from_igraph(
   width = "100\%",
   height = "400px",
   elementId = NULL,
-  label_grid_cell_size = 200
+  label_grid_cell_size = 200,
+  label_size = 7,
+  label_size_ratio = 0.02
 )
 }
 \arguments{
@@ -27,9 +29,13 @@ sigma_from_igraph(
 
 \item{elementId}{Do not specify, used by the htmlwidgets package}
 
-\item{label_grid_cell_size}{Sigma.js corresponding parameter. Roughly goes
+\item{label_grid_cell_size}{Sigma.js corresponding parameter. Roughly goes 
 from 1 to 5000, the smaller the more labels 
 displayed.}
+
+\item{label_size}{Sigma.js corresponding parameter，Controls the base size of labels}
+
+\item{label_size_ratio}{Sigma.js corresponding parameter.Modifies label_size based on label_grid_cell_size value..}
 }
 \value{
 Htmlwidget object, meant to be called directly to render a default
