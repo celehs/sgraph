@@ -1,8 +1,13 @@
 library(sgraph)
 library(shinyBS)
 
+if (Sys.getenv("LABEL_GRID_CELL_SIZE") == "") {
+  label_grid_cell_size <- 200  
+} else {
+  label_grid_cell_size <- as.numeric(Sys.getenv("LABEL_GRID_CELL_SIZE"))
+}
 
-shiny_map_server = function(input, output, session, label_grid_cell_size = 300) {
+shiny_map_server = function(input, output, session, label_grid_cell_size) {
   dirpath = system.file('extdata', package = 'sgraph')
   kgraph = get(load(file.path(dirpath, 'epmc_1700_cuis_kg.rds')))
   lgraph = kgraph_to_lgraph(kgraph)
@@ -82,6 +87,6 @@ shinyApp(
   server = function(input, output, session) {
     # Setting label_grid_cell_size=200 to control font size
     # Larger values increase font size; smaller values decrease font size
-    shiny_map_server(input, output, session, label_grid_cell_size = 200)
+    shiny_map_server(input, output, session, label_grid_cell_size =label_grid_cell_size)
   }
 )

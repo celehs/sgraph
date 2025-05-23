@@ -21,11 +21,12 @@ Depends:
     R (>= 3.5.0)
 Suggests:
     knitr,
-    testthat
+    testthat,
+    shinytest2
 VignetteBuilder: knitr
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.3.1
+RoxygenNote: 7.3.2
 URL: https://gitlab.com/thomaschln/sgraph
 BugReports: https://gitlab.com/thomaschln/sgraph/-/issues
 LazyData: true
